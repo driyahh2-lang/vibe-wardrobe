@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>about us</header>
+
+<nav>
+<a href="index.html">home</a>
+<a href="shop.html">shop</a>
+<a href="cart.html">cart</a>
+</nav>
+
+<div class="hero">
+<h1>who we are</h1>
+<p>vibe wardrobe is a fashion brand built on confidence, style, and self-expression.</p>
+</div>
+
+</body>
+</html>
