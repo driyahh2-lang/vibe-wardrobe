@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shop - Vibe Wardrobe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>shop 🛍️</header>
+
+<nav>
+<a href="index.html">home</a>
+<a href="shop.html">shop</a>
+<a href="cart.html">cart</a>
+</nav>
+
+<div class="card-container">
+
+<div class="card">
+<h3>cloud hoodie</h3>
+<p>$25</p>
+<button class="btn" onclick="addToCart('cloud hoodie', 25)">add to cart</button>
+</div>
+
+<div class="card">
+<h3>soft girl tee</h3>
+<p>$18</p>
+<button class="btn" onclick="addToCart('soft girl tee', 18)">add to cart</button>
+</div>
+
+<div class="card">
+<h3>vibe set</h3>
+<p>$40</p>
+<button class="btn" onclick="addToCart('vibe set', 40)">add to cart</button>
+</div>
+
+</div>
+
+<script>
+function addToCart(name, price) {
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart.push({name, price});
+localStorage.setItem("cart", JSON.stringify(cart));
+alert(name + " added 💖");
+}
+</script>
+
+</body>
+</html>
