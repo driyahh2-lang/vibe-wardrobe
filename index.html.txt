@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vibe Wardrobe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+vibe wardrobe ✨
+<div style="font-size:14px; font-weight:normal;">
+welcome, <span id="user">guest</span>
+</div>
+</header>
+
+<nav>
+<a href="index.html">home</a>
+<a href="about.html">about</a>
+<a href="shop.html">shop</a>
+<a href="contact.html">contact</a>
+<a href="login.html">login</a>
+<a href="cart.html">cart (<span id="cartCount">0</span>)</a>
+</nav>
+
+<div class="hero">
+<h1>style it. share it. give back.</h1>
+<p>your fashion, your vibe, your world.</p>
+<a class="btn" href="shop.html">shop now</a>
+</div>
+
+<div class="card-container">
+<div class="card">✨ aesthetic fits</div>
+<div class="card">🛍️ curated drops</div>
+<div class="card">💖 confidence wear</div>
+</div>
+
+<footer>© 2026 vibe wardrobe</footer>
+
+<script src="script.js"></script>
+
+<script>
+let user = localStorage.getItem("user");
+if (user) document.getElementById("user").innerText = user;
+
+function updateCartCount() {
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+document.getElementById("cartCount").innerText = cart.length;
+}
+updateCartCount();
+</script>
+
+</body>
+</html>
