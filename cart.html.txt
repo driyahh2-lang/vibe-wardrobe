@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>your cart 🛒</header>
+
+<nav>
+<a href="index.html">home</a>
+<a href="shop.html">shop</a>
+</nav>
+
+<div class="hero" id="cartBox"></div>
+
+<script>
+function loadCart() {
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let box = document.getElementById("cartBox");
+
+if (cart.length === 0) {
+box.innerHTML = "<h2>your cart is empty 💔</h2>";
+return;
+}
+
+let total = 0;
+let html = "";
+
+cart.forEach((item, i) => {
+total += item.price;
+html += `
+<div class="card">
+<p>${item.name} - $${item.price}</p>
+<button class="btn" onclick="removeItem(${i})">remove</button>
+</div>
+`;
+});
+
+html += `<h2>total: $${total}</h2>`;
+html += `<button class="btn" onclick="clearCart()">clear cart</button>`;
+
+box.innerHTML = html;
+}
+
+function removeItem(i) {
+let cart = JSON.parse(localStorage.getItem("cart"));
+cart.splice(i, 1);
+localStorage.setItem("cart", JSON.stringify(cart));
+loadCart();
+}
+
+function clearCart() {
+localStorage.removeItem("cart");
+loadCart();
+}
+
+loadCart();
+</script>
+
+</body>
+</html>
